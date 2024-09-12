@@ -77,6 +77,31 @@ const metasAbertas = async () => {
     })
 }
 
+const deletarMetas = async () => {
+    const metasDesmarcadas = metas.map((meta) => {
+        return {value: meta.value, checked: false}
+    })
+
+    const itensADeletar = await checkbox({
+        message: "Selecione o item para deletar",
+        choices: [...metasDesmarcadas],
+        instructions: false
+    })
+
+    if(itensADeletar.length == 0){
+        console.log("Nenhum item para deletar")
+        return
+    }
+
+    itensADeletar.forEach((item) => {
+        metas.filter((meta) => {
+            return meta.value != item
+        })
+    })
+
+    console.log("Meta(s) deletada(s)")
+}
+
 const start =  async () => {
 
     while(true){
@@ -125,9 +150,10 @@ const start =  async () => {
                 await metasAbertas()
                 break
             case "remover":
-                console.log("vamos remover")
+                await DefaultSerializer(Metas)
                 break
             case "sair":
+                console.log("Até a próxima! XD")
                 return
         }
     }
