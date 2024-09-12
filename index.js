@@ -1,5 +1,6 @@
 const { select, input, checkbox } = require('@inquirer/prompts')
 
+let mensagem = "Bem-vindo à todo list"
 /*let meta = {
     value: "item aqui",
     checked: false
@@ -102,9 +103,21 @@ const deletarMetas = async () => {
     console.log("Meta(s) deletada(s)")
 }
 
+const mostrarMensagem = () => {
+    console.clear()
+
+    if(mensagem != ""){
+        console.log(mensagem)
+        console.log("")
+        mensagem = ""
+    }
+}
+
 const start =  async () => {
 
     while(true){
+        mostrarMensagem()
+
         const opcao = await select({
             message: "Menu >",
             choices: [
@@ -150,7 +163,7 @@ const start =  async () => {
                 await metasAbertas()
                 break
             case "remover":
-                await DefaultSerializer(Metas)
+                await deletarMetas()
                 break
             case "sair":
                 console.log("Até a próxima! XD")
