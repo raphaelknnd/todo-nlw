@@ -16,3 +16,4 @@ As tecnologias utilizadas serão:
 - Marcar/desmarcar metas realizadas
 - Remover metas
 - Sistema de mensagens
+- Salvar metas (implícito)
