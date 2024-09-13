@@ -1,6 +1,10 @@
 [
   {
     "value": "Tomar 3L de água por dia",
+    "checked": true
+  },
+  {
+    "value": "Resolver o bug de deletar meta",
     "checked": false
   }
 ]

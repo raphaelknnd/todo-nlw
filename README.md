@@ -1,4 +1,4 @@
-# To-do list NLW Pocket
+# To-do list
 ## Objetivo
 Criar uma todo list utilizando Javascript e NodeJs para praticar, aprender e aprimorar os conhecimentos na linguagem.
 
@@ -6,6 +6,8 @@ Criar uma todo list utilizando Javascript e NodeJs para praticar, aprender e apr
 As tecnologias utilizadas serão:
 - Linguagem Javascript
 - NodeJs (v.18.17.0)
+
+![node](https://i.ibb.co/hmQG0X7/0-MNVJq-8e0-SJoq-Zb5.jpg)
 
 ## Execução
 **As seguintes funções foram implementadas no projeto:**

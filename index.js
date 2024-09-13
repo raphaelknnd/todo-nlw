@@ -4,6 +4,7 @@ let mensagem = "Bem-vindo à todo list"
 
 let metas
 
+// As metas são carregadas através do arquivo "metas.json"
 const carregarMetas = async () => {
     try {
         const dados = await fs.readFile("metas.json", "utf-8")
@@ -21,9 +22,11 @@ const cadastrarMeta = async () => {
     const meta = await input({ message: "Digite a meta: "})
 
     if(meta.length == 0){
-        console.log("A meta não pode ser vazia")
+        mensagem = "A meta não pode ser vazia"
         return
     }
+
+    mensagem = "Meta cadastrada!"
 
     metas.push({ value: meta, checked: false})
 }
@@ -56,7 +59,7 @@ const listarMetas = async () => {
         meta.checked = true
     })
 
-    console.log("Meta(s) concluída(s)")
+    mensagem = "Meta(s) concluída(s)"
 
 }
 
@@ -71,7 +74,7 @@ const metasRealizadas = async () => {
     })
 
     if(realizadas.length == 0){
-        console.log("Não existem metas realizadas :'(")
+        mensagem = "Não existem metas realizadas :'("
         return
     }
 
@@ -92,7 +95,7 @@ const metasAbertas = async () => {
     })
 
     if(abertas.length == 0){
-        console.log("Não existem metas abertas :D")
+        mensagem = "Não existem metas abertas :D"
         return
     }
 
@@ -119,17 +122,17 @@ const deletarMetas = async () => {
     })
 
     if(itensADeletar.length == 0){
-        console.log("Nenhum item para deletar")
+        mensagem = "Nenhum item para deletar"
         return
     }
 
     itensADeletar.forEach((item) => {
-        metas.filter((meta) => {
+        metas = metas.filter((meta) => {
             return meta.value != item
         })
     })
 
-    console.log("Meta(s) deletada(s)")
+    mensagem = "Meta(s) deletada(s)"
 }
 
 const mostrarMensagem = () => {
